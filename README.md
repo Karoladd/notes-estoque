@@ -36,7 +36,16 @@ This project was developed with the following technologies:
 Project with the pandas library, allowing more knowledge about this tool
 
 START - PIP
-- pip i pandas
+- pip i pandas 
+
+PYTHON
+- Extension to run in VSCode: Python and Pylance
+
+FOLDERS:
+- data - analyze excel
+- excel - python result in excel
+- note - python result in note
+- project - learning tests
 
 
 Links Usefull:
