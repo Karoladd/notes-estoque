@@ -1,12 +1,68 @@
 
-Filtrando linhas e colunas em uma tabela
+<h1 align="center"> Python - create Excel and Notes </h1>
+
+<p align="center">
+    Analyzing Excel, perform data filtering and creation of new Excel and Notes.
+</p>
+
+<p align="center">
+  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-references">References</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licence">Licence</a>
+</p>
+
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+</p>
+
+<br>
+
+## Result
+
+<p align="center">
+    <img alt="objective" src=".github/project.jpg" width="100%">
+</p>
+
+## 🚀 Technologies
+
+This project was developed with the following technologies:
+
+- [Python](https://www.python.org/)
+- [Library - Pandas](https://pandas.pydata.org/docs/)
+
+## 💻 Project
+
+Project with the pandas library, allowing more knowledge about this tool
+
+START - PIP
+- pip i pandas
+
+
+Links Usefull:
+<p align="left"> Python Download - https://www.python.org/downloads/</p>
+<p align="left"> VSCode Download -  https://code.visualstudio.com/download</p>
+
+## 🔖 References
+
+Filtering rows and columns in a table:
 https://www.youtube.com/watch?v=6M0PUNw7faE
 
-Como ler arquivo linha por linha com Python
+How to read file line by line with Python:
 https://www.youtube.com/watch?v=76loQGxS-Zg
 
-Manipulando linhas de dataframes pandas
+Manipulating rows of pandas dataframes:
 https://www.youtube.com/watch?v=-22JkOmJeSI
 
-Select Rows & Columns by Name or Index in Pandas DataFrame using [ ], loc & iloc
+Select Rows & Columns by Name or Index in Pandas DataFrame using [ ], loc & iloc:
 https://www.geeksforgeeks.org/select-rows-columns-by-name-or-index-in-pandas-dataframe-using-loc-iloc/
+
+## :memo: Licence
+
+This project is under the MIT license.
+
+---
+
+Made with ♥ by Karoline :wave: [Let's program together!](https://www.linkedin.com/in/karoline-hikari-yamamoto/)
+
+
