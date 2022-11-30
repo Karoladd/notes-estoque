@@ -45,16 +45,18 @@ This project was developed with the following technologies:
 Project with the pandas library, allowing more knowledge about this tool
 
 START - PIP
-- pip install pandas tkinter os 
+- pip install pandas tkinter os PyInstaller
+- pyinstaller index.py
 
 PYTHON
 - Extension to run in VSCode: Python and Pylance
 
 FOLDERS:
-- data - analyze excel
+- xls - analyze excel
 - excel - python result in excel
 - note - python result in note
 - project - learning tests
+- dist - index/index.exe
 
 
 Links Usefull:

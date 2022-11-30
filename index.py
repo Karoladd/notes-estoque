@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import filedialog
 from util.download import downloadN
 from util.rename import nameNotePF, nameNotePJ
+import sys
 
 class Application:
     def __init__(self, master):
@@ -106,13 +107,14 @@ class Application:
         self.voltar.pack(side=LEFT)
 
         self.sair = Button(self.setimoContainer,text="SAIR", font=self.fontePadrao)
-        self.sair["command"] = exit
+        self.sair["command"] = sys.exit()
         self.sair["width"] = 10
         self.sair["height"] = 1
         self.sair["bg"] = "red"
         self.sair["fg"] = "white"
-        self.sair.pack(side=LEFT)
+        self.sair.pack(pady=20)
         
+
     def menu(self):
         for i in self.master.winfo_children():
             i.destroy()
@@ -344,7 +346,7 @@ class Application:
 
         ignore = list(range(0, 5))
         ignore.append(6)
-        #data/SAL2223.xlsx
+        #xls/SAL2223.xlsx
         df = pd.read_excel(pathExcelKIT, sheet_name = "Plan1", skiprows = ignore)
         bremove = df.loc[df['Lote'].str.contains('B', na=False)]
         df.drop(bremove.index, inplace = True)
@@ -1091,7 +1093,7 @@ class Application:
         import pandas as pd
         ignore = list(range(0, 5))
         ignore.append(6)
-        #'data/SAL1146.xls'
+        #'xls/SAL1146.xls'
         pathExcelCaixa = self.nome["text"] 
         df = pd.read_excel(pathExcelCaixa, sheet_name = "Plan1", skiprows = ignore)
 

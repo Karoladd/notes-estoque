@@ -2,7 +2,7 @@ import pandas as pd
 
 ignore = list(range(0, 5))
 ignore.append(6)
-df = pd.read_excel('data/SAL2223.xls', sheet_name = "Plan1", skiprows = ignore)
+df = pd.read_excel('xls/SAL2223.xls', sheet_name = "Plan1", skiprows = ignore)
 bremove = df.loc[df['Lote'].str.contains('B', na=False)]
 df.drop(bremove.index, inplace = True)
 nan = df.loc[df['Lote'].isna()]
@@ -279,11 +279,11 @@ writer.save()
 'a' -> acrescentar algo
 '''
 
-dftitulo = pd.read_excel('data/SAL2223.xls', sheet_name = "Plan1")
+dftitulo = pd.read_excel('xls/SAL2223.xls', sheet_name = "Plan1")
 titulo = list(range(0, 4))
 titnote = dftitulo.iloc[titulo]
 colunas = dftitulo.iloc[[4]]
-dftitulo = pd.read_excel('data/SAL2223.xls', sheet_name = "Plan1", skiprows = ignore)
+dftitulo = pd.read_excel('xls/SAL2223.xls', sheet_name = "Plan1", skiprows = ignore)
 rodape = dftitulo.loc[dftitulo['Lote'].isna()]
 
 

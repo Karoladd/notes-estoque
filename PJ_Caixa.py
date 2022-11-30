@@ -4,7 +4,7 @@ import pandas as pd
 ignore = list(range(0, 5))
 ignore.append(6)
 
-nomeExcel = 'data/SAL1146.xls'
+nomeExcel = 'xls/SAL1146.xls'
 df = pd.read_excel(nomeExcel, sheet_name = "Plan1", skiprows = ignore)
 
 bremove = df.loc[df['Lote'].str.contains('B', na=False)]
@@ -282,11 +282,11 @@ writer.save()
 'a' -> acrescentar algo
 '''
 
-dftitulo = pd.read_excel('data/SAL1146.xls', sheet_name = "Plan1")
+dftitulo = pd.read_excel('xls/SAL1146.xls', sheet_name = "Plan1")
 titulo = list(range(0, 4))
 titnote = dftitulo.iloc[titulo]
 colunas = dftitulo.iloc[[4]]
-dftitulo = pd.read_excel('data/SAL1146.xls', sheet_name = "Plan1", skiprows = ignore)
+dftitulo = pd.read_excel('xls/SAL1146.xls', sheet_name = "Plan1", skiprows = ignore)
 rodape = dftitulo.loc[dftitulo['Lote'].isna()]
 
 
