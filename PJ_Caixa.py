@@ -1,8 +1,12 @@
 import pandas as pd
 
+
 ignore = list(range(0, 5))
 ignore.append(6)
-df = pd.read_excel('data/SAL1146.xls', sheet_name = "Plan1", skiprows = ignore)
+
+nomeExcel = 'data/SAL1146.xls'
+df = pd.read_excel(nomeExcel, sheet_name = "Plan1", skiprows = ignore)
+
 bremove = df.loc[df['Lote'].str.contains('B', na=False)]
 df.drop(bremove.index, inplace = True)
 nan = df.loc[df['Lote'].isna()]
@@ -12,26 +16,28 @@ df.drop(nan.index, inplace = True)
 bacalhau = df.loc[df['Codigo'].str.contains('LBAMS-PT', na=False)]
 camarao = df.loc[df['Codigo'].str.contains('CAM', na=False)]
 fileSalm = df.loc[df['Produto'].str.contains('SALMAO', na=False)]
+fileLing = df.loc[df['Codigo'].str.contains('FLIFE-BR', na=False)]
 polvo = df.loc[df['Produto'].str.contains('POLVO', na=False)]
-vieira = df.loc[df['Codigo'].str.contains('VIEPN', na=False)]
+vieira = df.loc[df['Codigo'].str.contains('VIEPN-PR', na=False)]
 
-peixes = pd.concat([bacalhau, camarao, fileSalm, polvo, vieira], ignore_index = True)
-print(peixes)
+peixes = pd.concat([bacalhau, camarao, fileSalm, fileLing, polvo, vieira], ignore_index = True)
+#print(peixes)
 
 #Variações
 
-camMCar = df.loc[df['Codigo'].str.contains('CAMMC-AR', na=False)]
+camMCar_sp = df.loc[df['Codigo'].str.contains('CAMMC-AR', na=False)& df['Produto'].str.contains('CAMARÃO S/PELE')]
+camMCar_cr = df.loc[df['Codigo'].str.contains('CAMMC-AR', na=False)& df['Produto'].str.contains('CAMARÃO C/RABO')]
 camMRbr = df.loc[df['Codigo'].str.contains('CAMMR-BR', na=False)]
 camPNar = df.loc[df['Codigo'].str.contains('CAMPN-AR', na=False)]
 
 df.drop(bacalhau.index, inplace = True)
-df.drop(camarao.index, inplace = True)
+df.drop(camMCar_sp.index, inplace = True)
+df.drop(camMCar_cr.index, inplace = True)
+df.drop(camMRbr.index, inplace = True)
+df.drop(camPNar.index, inplace = True)
 df.drop(fileSalm.index, inplace = True)
 df.drop(polvo.index, inplace = True)
 df.drop(vieira.index, inplace = True)
-
-# NÃO VENDEMOS
-print(bremove)
 
 #CARNES
 picanha = df.loc[df['Codigo'].str.contains('PIC', na=False)]
@@ -39,7 +45,8 @@ fileCostela = df.loc[(df['Produto'].str.contains('COSTELA', na=False)) & df['Cod
 contFile = df.loc[(df['Produto'].str.contains('CONTRA FILE', na=False)) & df['Codigo'].str.contains('CFI')]
 
 carnesTop = pd.concat([picanha, fileCostela, contFile], ignore_index = True)
-print(carnesTop)
+
+#print(carnesTop)
 
 #Variações
 
@@ -58,6 +65,22 @@ picPIarR = df.loc[df['Codigo'].str.contains('PICPI-AR-01R', na=False)]
 picSOuy = df.loc[df['Codigo'].str.contains('PICSO-UY', na=False)]
 picZMbr = df.loc[df['Codigo'].str.contains('PICZM-BR', na=False)]
 
+df.drop(picBBar.index, inplace = True)
+df.drop(picCJar.index, inplace = True)
+df.drop(picCPuy.index, inplace = True)
+df.drop(picFBar.index, inplace = True)
+df.drop(picFCpy.index, inplace = True)
+df.drop(picFGar.index, inplace = True)
+df.drop(picGRpy.index, inplace = True)
+df.drop(picLMuy.index, inplace = True)
+df.drop(picNGbr.index, inplace = True)
+df.drop(picPDuy.index, inplace = True)
+df.drop(picPIarC.index, inplace = True)
+df.drop(picPIarR.index, inplace = True)
+df.drop(picSOuy.index, inplace = True)
+df.drop(picZMbr.index, inplace = True)
+
+
 fcCCRbr = df.loc[df['Codigo'].str.contains('FCCCR-BR', na=False)]
 fcCFRbr = df.loc[df['Codigo'].str.contains('FCCFR-BR', na=False)] 
 fcCNSbr = df.loc[df['Codigo'].str.contains('FCCBS-BR', na=False)]
@@ -69,6 +92,18 @@ fcOOPar = df.loc[df['Codigo'].str.contains('FCOOP-AR', na=False)]
 fcOPDuy = df.loc[df['Codigo'].str.contains('FCOPD-UY', na=False)]
 fcOPIar = df.loc[df['Codigo'].str.contains('FCOPI-AR', na=False)]
 fcOSOuy = df.loc[df['Codigo'].str.contains('FCOSO-UY', na=False)] 
+
+df.drop(fcCCRbr.index, inplace = True)
+df.drop(fcCFRbr.index, inplace = True)
+df.drop(fcCNSbr.index, inplace = True)
+df.drop(fcOBBar.index, inplace = True)
+df.drop(fcOCPuy.index, inplace = True)
+df.drop(fcOIFuy.index, inplace = True)
+df.drop(fcOLMuy.index, inplace = True)
+df.drop(fcOOPar.index, inplace = True)
+df.drop(fcOPDuy.index, inplace = True)
+df.drop(fcOPIar.index, inplace = True)
+df.drop(fcOSOuy.index, inplace = True)
 
 cfIBBar = df.loc[df['Codigo'].str.contains('CFIBB-AR', na=False)] 
 cfiBSbr = df.loc[df['Codigo'].str.contains('CFIBS-BR', na=False)] 
@@ -82,35 +117,68 @@ cfiPDuy = df.loc[df['Codigo'].str.contains('CFIPD-UY', na=False)]
 cfiPIar = df.loc[df['Codigo'].str.contains('CFIPI-AR', na=False)]
 cfiSOuy = df.loc[df['Codigo'].str.contains('CFISO-UY', na=False)]
 
+df.drop(cfIBBar.index, inplace = True)
+df.drop(cfiBSbr.index, inplace = True)
+df.drop(cfiCPuy.index, inplace = True)
+df.drop(cfiFRbr.index, inplace = True)
+df.drop(cfiGRpy.index, inplace = True)
+df.drop(cfiIFuy.index, inplace = True)
+df.drop(cfiLMuy.index, inplace = True)
+df.drop(cfiOPar.index, inplace = True)
+df.drop(cfiPDuy.index, inplace = True)
+df.drop(cfiPIar.index, inplace = True)
+df.drop(cfiSOuy.index, inplace = True)
+
 
 accCRbr = df.loc[df['Codigo'].str.contains('ACCCR-BR', na=False)]
 accFRbr = df.loc[df['Codigo'].str.contains('ACCFR-BR', na=False)]
 accFUbr = df.loc[df['Codigo'].str.contains('ACCFU-BR', na=False)]
+df.drop(accCRbr.index, inplace = True)
+df.drop(accFRbr.index, inplace = True)
+df.drop(accFUbr.index, inplace = True)
 
 alcFCpy = df.loc[df['Codigo'].str.contains('ALCFC-PY', na=False)]
+df.drop(alcFCpy.index, inplace = True)
 
 atiBSbr = df.loc[df['Codigo'].str.contains('ATIBS-BR', na=False)]
 atiCRbr = df.loc[df['Codigo'].str.contains('ATICR-BR', na=False)]
 atiFRbr = df.loc[df['Codigo'].str.contains('ATIFR-BR', na=False)]
 atiPDuy = df.loc[df['Codigo'].str.contains('ATIPD-UY', na=False)]
+df.drop(atiBSbr.index, inplace = True)
+df.drop(atiCRbr.index, inplace = True)
+df.drop(atiFRbr.index, inplace = True)
+df.drop(atiPDuy.index, inplace = True)
 
 bar19br = df.loc[df['Codigo'].str.contains('BAR19-BR', na=False)]
 bbmFRbr = df.loc[df['Codigo'].str.contains('BBMFR-BR', na=False)]
+df.drop(bar19br.index, inplace = True)
+df.drop(bbmFRbr.index, inplace = True)
 
 carDCuy = df.loc[df['Codigo'].str.contains('CARDC-UY', na=False)]
+df.drop(carDCuy.index, inplace = True)
 
 cfrGTar = df.loc[df['Codigo'].str.contains('CFRGT-AR', na=False)]
 cfrPOar = df.loc[df['Codigo'].str.contains('CFRPO-AR', na=False)]
+df.drop(cfrGTar.index, inplace = True)
+df.drop(cfrPOar.index, inplace = True)
 
 cosFRbr = df.loc[df['Codigo'].str.contains('COSFR-BR', na=False)]
 cosGAbr = df.loc[df['Codigo'].str.contains('COSGA-BR', na=False)]
 cosPDuy = df.loc[df['Codigo'].str.contains('COSPD-UY', na=False)]
+cosSWbr = df.loc[df['Codigo'].str.contains('COSSW-BR', na=False)]
 cotGAbr = df.loc[df['Codigo'].str.contains('COTGA-BR', na=False)]
 
+df.drop(cosFRbr.index, inplace = True)
+df.drop(cosGAbr.index, inplace = True)
+df.drop(cosPDuy.index, inplace = True)
+df.drop(cosSWbr.index, inplace = True)
+df.drop(cotGAbr.index, inplace = True)
 
 fliFEbr = df.loc[df['Codigo'].str.contains('FLIFE-BR', na=False)]
+df.drop(fliFEbr.index, inplace = True)
 
 fmiBCbr = df.loc[df['Codigo'].str.contains('FMIBC-BR', na=False)]
+df.drop(fmiBCbr.index, inplace = True)
 
 frCFCuy = df.loc[df['Codigo'].str.contains('FRCFC-UY', na=False)]
 frDCRbr = df.loc[df['Codigo'].str.contains('FRDCR-BR', na=False)]
@@ -121,9 +189,23 @@ frSLMuy = df.loc[df['Codigo'].str.contains('FRSLM-UY', na=False)]
 frSPDuy = df.loc[df['Codigo'].str.contains('FRSPD-UY', na=False)]
 frSSOuy = df.loc[df['Codigo'].str.contains('FRSSO-UY', na=False)]
 
+df.drop(frCFCuy.index, inplace = True)
+df.drop(frDCRbr.index, inplace = True)
+df.drop(frSCPuy.index, inplace = True)
+df.drop(frSFRbr.index, inplace = True)
+df.drop(frSIFuy.index, inplace = True)
+df.drop(frSLMuy.index, inplace = True)
+df.drop(frSPDuy.index, inplace = True)
+df.drop(frSSOuy.index, inplace = True)
+
 icfFRbr = df.loc[df['Codigo'].str.contains('ICFFR-BR', na=False)]
+df.drop(icfFRbr.index, inplace = True)
+
+intBCbr = df.loc[df['Codigo'].str.contains('INTBC-BR', na=False)] 
+df.drop(intBCbr.index, inplace = True)
 
 linSBuy = df.loc[df['Codigo'].str.contains('LINSB-UY', na=False)]
+df.drop(linSBuy.index, inplace = True)
 
 macBBar = df.loc[df['Codigo'].str.contains('MACBB-AR', na=False)]
 malBBar = df.loc[df['Codigo'].str.contains('MALBB-AR', na=False)]
@@ -134,16 +216,32 @@ malIFuy = df.loc[df['Codigo'].str.contains('MALIF-UY', na=False)]
 malPIar = df.loc[df['Codigo'].str.contains('MALPI-AR', na=False)]
 malSOuy = df.loc[df['Codigo'].str.contains('MALSO-UY', na=False)]
 
+df.drop(macBBar.index, inplace = True)
+df.drop(malBBar.index, inplace = True)
+df.drop(malCPuy.index, inplace = True)
+df.drop(malFCpy.index, inplace = True)
+df.drop(malGRpy.index, inplace = True)
+df.drop(malIFuy.index, inplace = True)
+df.drop(malPIar.index, inplace = True)
+df.drop(malSOuy.index, inplace = True)
+
 mamBSbr = df.loc[df['Codigo'].str.contains('MAMBS-BR', na=False)]
 mamFCpy = df.loc[df['Codigo'].str.contains('MAMFC-PY', na=False)]
 mamLMuy = df.loc[df['Codigo'].str.contains('MAMLM-UY', na=False)]
 mamPIar = df.loc[df['Codigo'].str.contains('MAMPI-AR', na=False)]
 mamSOuy = df.loc[df['Codigo'].str.contains('MAMSO-UY', na=False)]
 
+df.drop(mamBSbr.index, inplace = True)
+df.drop(mamFCpy.index, inplace = True)
+df.drop(mamLMuy.index, inplace = True)
+df.drop(mamPIar.index, inplace = True)
+df.drop(mamSOuy.index, inplace = True)
+
 pltDCuy = df.loc[df['Codigo'].str.contains('PLTDC-UY', na=False)]
+df.drop(pltDCuy.index, inplace = True)
 
 raqBBar = df.loc[df['Codigo'].str.contains('RAQBB-AR', na=False)]
-
+df.drop(raqBBar.index, inplace = True)
 
 tbExc = df.loc[df['Produto'].str.contains('T BONE', na=False)]
 tboCRbr = df.loc[df['Codigo'].str.contains('TBOCR-BR', na=False)]
@@ -157,21 +255,19 @@ df.drop(tboOPar.index, inplace = True)
 
 dTbone = pd.concat([tbExc, tboCRbr, tboFRbr, tboOPar], ignore_index = True)
 
-df.drop(picanha.index, inplace = True)
-df.drop(fileCostela.index, inplace = True)
-df.drop(contFile.index, inplace = True)
-
-
 caixa = df.loc[df['Codigo'].str.contains('SUD-800', na=False)]
 df.drop(caixa.index, inplace = True)
 
+#PRODUTO NÃO CADASTRADO
+if not df.empty:
+    print(df)
 
 dTotal = pd.concat([peixes, bremove, carnesTop, df, dTbone, caixa], ignore_index = True)
-print(dTotal)
+#print(dTotal)
 
 try:
     dadosGeral = pd.DataFrame(data=dTotal)
-    print(dadosGeral)
+    #print(dadosGeral)
 except (NameError):
     print('Por favor, atualize o programa novamente...')
 pass
@@ -205,10 +301,15 @@ with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
 if not bacalhau.empty:
     bacalhau.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
 
-if not camMCar.empty:
+if not camMCar_sp.empty:
     with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
         f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-    camMCar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+    camMCar_sp.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+if not camMCar_cr.empty:
+    with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+        f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+    camMCar_cr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+
 if not camMRbr.empty:
     with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
         f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
@@ -217,6 +318,14 @@ if not camPNar.empty:
     with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
         f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
     camPNar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+if not fileSalm.empty:
+    with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+        f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+    fileSalm.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+if not fileLing.empty:
+    with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+        f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+    fileLing.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
 
 if not polvo.empty:
     with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
@@ -465,6 +574,10 @@ if not cosPDuy.empty:
     with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
         f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
     cosPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+if not cosSWbr.empty:
+    with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+        f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+    cosSWbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 if not cotGAbr.empty:
     with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
         f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
@@ -516,6 +629,10 @@ if not icfFRbr.empty:
     with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
         f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
     icfFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+if not intBCbr.empty:
+    with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+        f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+    intBCbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')   
 if not linSBuy.empty:
     with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
         f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
@@ -617,8 +734,9 @@ else:
         f.write("                                                                         Nenhum produto foi encontrado                                                                              \n")
 with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a', encoding="utf=8") as f:
     f.write("======================================================================================================================================================================================\n")
+with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a', encoding="utf=8") as f:
     f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-rodape.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+    f.write("                                                   Obs.: (*) - sem NF de Armazenagem         (B) - Bloqueado         (v) - Peso Variavel                                              \n")
 
 #dadosGeral.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
 
