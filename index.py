@@ -328,12 +328,14 @@ class Application:
             self.aguarde.after(0000, lambda: self.aguarde.config(bg="orange",text='Insira o arquivo!'))
         else:
             self.autenticar["command"] = self.exportPF
+            self.aguarde.after(2000, lambda: self.aguarde.config(bg="green",text='Automatiçao finalizada!'))
 
     def automPJ(self):
         if (self.nome["text"] == ""):
             self.aguarde.after(0000, lambda: self.aguarde.config(bg="orange",text='Insira o arquivo!'))
         else:
             self.autenticar["command"] = self.exportPJ
+            self.aguarde.after(2000, lambda: self.aguarde.config(bg="green",text='Automatiçao finalizada!'))
 
     def exportPF(self):
         pathExcelKIT = self.nome["text"]

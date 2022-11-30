@@ -2,7 +2,8 @@
 <h1 align="center"> Python - create Excel and Notes </h1>
 
 <p align="center">
-    Analyzing Excel, perform data filtering and creation of new Excel and Notes.
+    Analyzing Excel, perform data filtering and creation of new Excel and Notes. 
+    Interface to perform analyzes with Tkinter.
 </p>
 
 <p align="center">
@@ -24,19 +25,27 @@
     <img alt="objective" src=".github/project.jpg" width="100%">
 </p>
 
+## Tkinter
+
+<p align="center">
+    <img alt="objective" src=".github/tkmenu.jpg" width="50%">
+    <img alt="objective" src=".github/tksucess.jpg" width="50%">
+</p>
+
 ## 🚀 Technologies
 
 This project was developed with the following technologies:
 
 - [Python](https://www.python.org/)
 - [Library - Pandas](https://pandas.pydata.org/docs/)
+- [Library - Tkinter](https://docs.python.org/3/library/tk.html)
 
 ## 💻 Project
 
 Project with the pandas library, allowing more knowledge about this tool
 
 START - PIP
-- pip i pandas 
+- pip install pandas tkinter os 
 
 PYTHON
 - Extension to run in VSCode: Python and Pylance
