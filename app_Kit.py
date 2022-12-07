@@ -1,14 +1,14 @@
 #INSERIR ARQUIVO
-with open(r'C:\Users\Karol\Desktop\excel-python\ex-Kit\SDPR2223.TXT') as f:
+with open(r'C:\Users\Karol\Desktop\excel-python\exemplo\SAL1146.txt') as f:
     content = f.readlines()
 content = [x.strip('\n') for x in content]
-
+    
 import os
 dir = r'C:\Users\Karol\Desktop\excel-python\note'
 for f in os.listdir(dir):
     os.remove(os.path.join(dir, f))
-#NOTAS GERAL
-pathNotas = r'C:\Users\Karol\Desktop\excel-python\note\notas.txt'
+
+pathNotas = r'C:\Users\Karol\Desktop\excel-python\note\PF.txt'
 lines_cod = "----------------------------------------------------------------------------------------------------------------------------------------------------------------"
 
 listaGeral = []
@@ -153,6 +153,7 @@ if len(listfileSalmao):
 else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listfileSalmao]
+
 
 listfileLing = []
 for line in content:

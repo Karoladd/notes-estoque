@@ -28,8 +28,8 @@
 ## Tkinter
 
 <p align="center">
-    <img alt="objective" src=".github/tkmenu.jpg" width="50%">
-    <img alt="objective" src=".github/tksucess.jpg" width="50%">
+    <img alt="objective" src=".github/tkmenu.jpg" width="25%">
+    <img alt="objective" src=".github/tksucess.jpg" width="25%">
 </p>
 
 ## 🚀 Technologies
@@ -47,7 +47,8 @@ Project with the pandas library, allowing more knowledge about this tool
 START - PIP
 - pip install pandas tkinter os PyInstaller
 - pyinstaller index.py
-
+  * Folders: build, dist
+  * File: index.spec
 PYTHON
 - Extension to run in VSCode: Python and Pylance
 
@@ -58,6 +59,18 @@ FOLDERS:
 - project - learning tests
 - dist - index/index.exe
 
+COLUNAS:
+1. Lote
+2. Código
+3. Produto
+4. Un.
+5. Qt. (Volume)
+6. Peso Lq.
+7. Peso Br.
+8. Validade (Motivo)
+9. Camara 
+10. NFE (Motivo)
+11. Entrada
 
 Links Usefull:
 <p align="left"> Python Download - https://www.python.org/downloads/</p>
@@ -76,6 +89,12 @@ https://www.youtube.com/watch?v=-22JkOmJeSI
 
 Select Rows & Columns by Name or Index in Pandas DataFrame using [ ], loc & iloc:
 https://www.geeksforgeeks.org/select-rows-columns-by-name-or-index-in-pandas-dataframe-using-loc-iloc/
+
+Delete all files directory python
+https://www.techiedelight.com/pt/delete-all-files-directory-python/
+
+Remove list elements that contain given String in Python
+https://bobbyhadz.com/blog/python-remove-elements-from-list-that-contain-string
 
 ## :memo: Licence
 

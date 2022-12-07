@@ -3,9 +3,9 @@ import pandas as pd
 
 ignore = list(range(0, 5))
 ignore.append(6)
-
+cols = [0,1,2,3,4,5,6,7,8,10,13]
 nomeExcel = 'xls/SAL1146.xls'
-df = pd.read_excel(nomeExcel, sheet_name = "Plan1", skiprows = ignore)
+df = pd.read_excel(nomeExcel, sheet_name = "Plan1", skiprows = ignore, usecols=cols)
 
 bremove = df.loc[df['Lote'].str.contains('B', na=False)]
 df.drop(bremove.index, inplace = True)
@@ -282,18 +282,23 @@ writer.save()
 'a' -> acrescentar algo
 '''
 
-dftitulo = pd.read_excel('xls/SAL1146.xls', sheet_name = "Plan1")
+dftitulo = pd.read_excel('xls/SAL1146.xls', sheet_name = "Plan1", usecols=cols)
 titulo = list(range(0, 4))
 titnote = dftitulo.iloc[titulo]
 colunas = dftitulo.iloc[[4]]
 dftitulo = pd.read_excel('xls/SAL1146.xls', sheet_name = "Plan1", skiprows = ignore)
 rodape = dftitulo.loc[dftitulo['Lote'].isna()]
 
+import os
+ 
+dir = r'C:\Users\Karol\Desktop\excel-python\note'
+for f in os.listdir(dir):
+    os.remove(os.path.join(dir, f))
 
 titnote.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='w')
 with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
     f.write("======================================================================================================================================================================================\n")
-colunas.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+    f.write("Lote	    Codigo	       Produto	                       Un.    Volume	  Peso Lq.	Peso Br.	  Validade	 Camara	Motivo	 Marca\n")    
 with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
     f.write("======================================================================================================================================================================================\n")
     f.write("                                                                                      PEIXES                                                                                          \n")

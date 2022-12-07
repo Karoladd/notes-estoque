@@ -1,13 +1,16 @@
 import pandas as pd
 
+# COLOQUE O EXCEL QUE 
 ignore = list(range(0, 5))
 ignore.append(6)
-df = pd.read_excel('xls/SAL2223.xls', sheet_name = "Plan1", skiprows = ignore)
+cols = [0,1,2,3,4,5,6,7,8,10,13]
+df = pd.read_excel('xls/SAL2223.xls', sheet_name = "Plan1", skiprows = ignore, usecols=cols)
 bremove = df.loc[df['Lote'].str.contains('B', na=False)]
 df.drop(bremove.index, inplace = True)
 nan = df.loc[df['Lote'].isna()]
 df.drop(nan.index, inplace = True)
 
+print(df)
 # PEIXES
 bacalhau = df.loc[df['Codigo'].str.contains('LBAMS-PT', na=False)]
 camarao = df.loc[df['Codigo'].str.contains('CAM', na=False)]
@@ -279,18 +282,22 @@ writer.save()
 'a' -> acrescentar algo
 '''
 
-dftitulo = pd.read_excel('xls/SAL2223.xls', sheet_name = "Plan1")
+dftitulo = pd.read_excel('xls/SAL2223.xls', sheet_name = "Plan1", usecols=cols)
 titulo = list(range(0, 4))
 titnote = dftitulo.iloc[titulo]
 colunas = dftitulo.iloc[[4]]
 dftitulo = pd.read_excel('xls/SAL2223.xls', sheet_name = "Plan1", skiprows = ignore)
 rodape = dftitulo.loc[dftitulo['Lote'].isna()]
 
+import os
+dir = r'C:\Users\Karol\Desktop\excel-python\note'
+for f in os.listdir(dir):
+    os.remove(os.path.join(dir, f))
 
 titnote.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='w')
 with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
     f.write("======================================================================================================================================================================================\n")
-colunas.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+    f.write("Lote	    Codigo	       Produto	                       Un.    Volume	  Peso Lq.	Peso Br.	  Validade	 Camara	Motivo	 Marca\n")    
 with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
     f.write("======================================================================================================================================================================================\n")
     f.write("                                                                                      PEIXES                                                                                          \n")
