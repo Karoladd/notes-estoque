@@ -3,7 +3,7 @@ from tkinter import filedialog
 from util.download import downloadN
 from util.rename import nameNotePF, nameNotePJ
 
-PATHNOTEDIR = r"C:\Users\Karol\Desktop\excel-python\note"
+PATHNOTEDIR = r"C:\Users\Karol\Desktop\excel-python\test\note"
 
 class Application:
 
@@ -595,7 +595,7 @@ class Application:
             print('Por favor, atualize o programa novamente...')
         pass
 
-        writer = pd.ExcelWriter(r'C:\Users\Karol\Desktop\excel-python\excel\SaldoProdPF.xlsx')
+        writer = pd.ExcelWriter(r'C:\Users\Karol\Desktop\excel-python\test\excel\SaldoProdPF.xlsx')
         dadosGeral.to_excel(writer, sheet_name='Geral', index=False)
         writer.save()
         '''
@@ -613,461 +613,461 @@ class Application:
         rodape = dftitulo.loc[dftitulo['Lote'].isna()]
 
         import os
-        dir = r'C:\Users\Karol\Desktop\excel-python\note'
+        dir = r'C:\Users\Karol\Desktop\excel-python\test\note'
         for f in os.listdir(dir):
             os.remove(os.path.join(dir, f))
 
-        titnote.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='w')
-        with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+        titnote.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='w')
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
             f.write("======================================================================================================================================================================================\n")
-        colunas.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
-        with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+        colunas.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
             f.write("======================================================================================================================================================================================\n")
             f.write("                                                                                      PEIXES                                                                                          \n")
             f.write("======================================================================================================================================================================================\n")
         if not bacalhau.empty:
-            bacalhau.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            bacalhau.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
 
         if not camMCar_sp.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            camMCar_sp.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            camMCar_sp.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
         if not camMCar_cr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            camMCar_cr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            camMCar_cr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
         if not camMRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            camMRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            camMRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
         if not camPNar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            camPNar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            camPNar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
         if not fileSalm.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fileSalm.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            fileSalm.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
         if not fileLing.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fileLing.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            fileLing.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
 
         if not polvo.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            polvo.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            polvo.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
         if not vieira.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            polvo.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
-        with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a', encoding="utf=8") as f:
+            polvo.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a', encoding="utf=8") as f:
             f.write("======================================================================================================================================================================================\n")
             f.write("                                                                                   NÃO VENDEMOS                                                                                       \n")
             f.write("======================================================================================================================================================================================\n")
         if not bremove.empty:
-            bremove.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            bremove.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
         else:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a', encoding="utf=8") as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a', encoding="utf=8") as f:
                 f.write("                                                                         Nenhum produto foi encontrado                                                                              \n")
-        with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a', encoding="utf=8") as f:
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a', encoding="utf=8") as f:
             f.write("======================================================================================================================================================================================\n")
             f.write("                                                                                      CARNES                                                                                          \n")
             f.write("======================================================================================================================================================================================\n")
         if not picBBar.empty:
-            picBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            picBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
         if not picCJar.empty:
             if picBBar.empty:
-                picCJar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+                picCJar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
             else:
-                with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+                with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                     f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-                picCJar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+                picCJar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not picCPuy.empty:
             if picCJar.empty:
-                picCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+                picCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
             else: 
-                with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+                with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                     f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-                picCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+                picCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not picFBar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picFBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            picFBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not picFCpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            picFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not picFGar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picFGar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            picFGar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not picGRpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picGRpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            picGRpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not picLMuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            picLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not picNGbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picNGbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            picNGbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not picPDuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            picPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not picPIarC.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picPIarC.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            picPIarC.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not picPIarR.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picPIarR.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            picPIarR.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not picSOuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            picSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not picZMbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picZMbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            picZMbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
 
 
 
 
         if not fcCCRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcCCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            fcCCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcCFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcCFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            fcCFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcCNSbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcCNSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            fcCNSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOBBar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOCPuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOIFuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOLMuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOOPar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOOPar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOOPar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOPDuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOPIar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOSOuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a') 
 
 
 
 
         if not cfIBBar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfIBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cfIBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiBSbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiBSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiBSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiCPuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiGRpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiGRpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiGRpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiIFuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            cfiIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
         if not cfiLMuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiOPar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiOPar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiOPar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiPDuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiPIar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiSOuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
 
 
 
         if not accCRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            accCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            accCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not accFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            accFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            accFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not accFUbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            accFUbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            accFUbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not alcFCpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            alcFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            alcFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not atiBSbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            atiBSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            atiBSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not atiCRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            atiCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            atiCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not atiFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            atiFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            atiFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not atiPDuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            atiPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            atiPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not bar19br.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            bar19br.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            bar19br.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not bbmFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            bbmFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            bbmFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
 
         if not carDCuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            carDCuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            carDCuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not cfrGTar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfrGTar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cfrGTar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfrPOar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfrPOar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cfrPOar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not cosFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cosFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cosFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cosGAbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cosGAbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cosGAbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cosPDuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cosPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cosPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cosSWbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cosSWbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cosSWbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not cotGAbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cotGAbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            cotGAbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not fliFEbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fliFEbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            fliFEbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not fmiBCbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fmiBCbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            fmiBCbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not frCFCuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frCFCuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            frCFCuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not frDCRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frDCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            frDCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not frSCPuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frSCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            frSCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not frSFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frSFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            frSFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not frSIFuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frSIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            frSIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not frSLMuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frSLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            frSLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not frSPDuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frSPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            frSPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not frSSOuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frSSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            frSSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not icfFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            icfFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            icfFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not intBCbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            intBCbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            intBCbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not linSBuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            linSBuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            linSBuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not macBBar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            macBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            macBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not malBBar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            malBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not malCPuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            malCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not malFCpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            malFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not malGRpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malGRpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            malGRpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not malIFuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            malIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not malPIar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            malPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not malSOuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            malSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not mamBSbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            mamBSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            mamBSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not mamFCpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            mamFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            mamFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not mamLMuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            mamLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            mamLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not mamPIar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            mamPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            mamPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not mamSOuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            mamSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            mamSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not pltDCuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            pltDCuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            pltDCuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not raqBBar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            raqBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            raqBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not tbExc.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            tbExc.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            tbExc.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not tboCRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            tboCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            tboCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
         if not tboFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            tboFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            tboFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
         if not tboOPar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            tboOPar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            tboOPar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
 
 
-        #df.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+        #df.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
 
-        with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a', encoding="utf=8") as f:
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a', encoding="utf=8") as f:
             f.write("======================================================================================================================================================================================\n")
             f.write("                                                                                      OUTROS                                                                                          \n")
             f.write("======================================================================================================================================================================================\n")
         if not caixa.empty:
-            caixa.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+            caixa.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
         else:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a', encoding="utf=8") as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a', encoding="utf=8") as f:
                 f.write("                                                                         Nenhum produto foi encontrado                                                                              \n")
-        with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a', encoding="utf=8") as f:
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a', encoding="utf=8") as f:
             f.write("======================================================================================================================================================================================\n")
-        with open('C:/Users/Karol/Desktop/excel-python/note/PF.txt', 'a', encoding="utf=8") as f:
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', 'a', encoding="utf=8") as f:
             f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
             f.write("                                                   Obs.: (*) - sem NF de Armazenagem         (B) - Bloqueado         (v) - Peso Variavel                                              \n")
-        #dadosGeral.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')
+        #dadosGeral.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')
 
         """ with open('C:/Users/Karol/Desktop/excel-python/PF.txt', 'w') as f:
             for line in dTotal:
@@ -1369,455 +1369,455 @@ class Application:
         rodape = dftitulo.loc[dftitulo['Lote'].isna()]
 
 
-        titnote.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='w')
-        with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+        titnote.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='w')
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
             f.write("======================================================================================================================================================================================\n")
-        colunas.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
-        with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+        colunas.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
             f.write("======================================================================================================================================================================================\n")
             f.write("                                                                                      PEIXES                                                                                          \n")
             f.write("======================================================================================================================================================================================\n")
         if not bacalhau.empty:
-            bacalhau.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+            bacalhau.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
 
         if not camMCar_sp.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            camMCar_sp.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+            camMCar_sp.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
         if not camMCar_cr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            camMCar_cr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+            camMCar_cr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
 
         if not camMRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            camMRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+            camMRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
         if not camPNar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            camPNar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+            camPNar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
         if not fileSalm.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fileSalm.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+            fileSalm.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
         if not fileLing.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fileLing.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+            fileLing.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
 
         if not polvo.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            polvo.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+            polvo.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
         if not vieira.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            vieira.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
-        with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a', encoding="utf=8") as f:
+            vieira.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a', encoding="utf=8") as f:
             f.write("======================================================================================================================================================================================\n")
             f.write("                                                                                   NÃO VENDEMOS                                                                                       \n")
             f.write("======================================================================================================================================================================================\n")
         if not bremove.empty:
-            bremove.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
-        with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a', encoding="utf=8") as f:
+            bremove.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a', encoding="utf=8") as f:
             f.write("======================================================================================================================================================================================\n")
             f.write("                                                                                      CARNES                                                                                          \n")
             f.write("======================================================================================================================================================================================\n")
         if not picBBar.empty:
-            picBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+            picBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
         if not picCJar.empty:
             if picBBar.empty:
-                picCJar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+                picCJar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
             else:
-                with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+                with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                     f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-                picCJar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+                picCJar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not picCPuy.empty:
             if picCJar.empty:
-                picCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+                picCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
             else: 
-                with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+                with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                     f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-                picCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+                picCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not picFBar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picFBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            picFBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not picFCpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            picFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not picFGar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picFGar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            picFGar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not picGRpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picGRpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            picGRpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not picLMuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            picLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not picNGbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picNGbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            picNGbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not picPDuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            picPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not picPIarC.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picPIarC.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            picPIarC.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not picPIarR.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picPIarR.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            picPIarR.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not picSOuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            picSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not picZMbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            picZMbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            picZMbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
 
 
 
 
 
         if not fcCCRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcCCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            fcCCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcCFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcCFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            fcCFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcCNSbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcCNSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            fcCNSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOBBar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOCPuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOIFuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOLMuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOOPar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOOPar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOOPar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOPDuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOPIar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
         if not fcOSOuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fcOSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
+            fcOSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a') 
 
 
         if not cfIBBar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfIBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cfIBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiBSbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiBSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiBSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiCPuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiGRpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiGRpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiGRpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiIFuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+            cfiIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
         if not cfiLMuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiOPar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiOPar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiOPar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiPDuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiPIar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfiSOuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfiSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cfiSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
 
 
         if not accCRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            accCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            accCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not accFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            accFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            accFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not accFUbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            accFUbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            accFUbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not alcFCpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            alcFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            alcFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not atiBSbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            atiBSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            atiBSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not atiCRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            atiCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            atiCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not atiFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            atiFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            atiFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not atiPDuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            atiPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            atiPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not bar19br.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            bar19br.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            bar19br.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
         if not bbmFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            bbmFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
+            bbmFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PF.txt', header=None, index=None, sep='\t', mode='a')    
 
 
         if not carDCuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            carDCuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            carDCuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not cfrGTar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfrGTar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cfrGTar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cfrPOar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cfrPOar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cfrPOar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not cosFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cosFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cosFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cosGAbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cosGAbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cosGAbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cosPDuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cosPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cosPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cosSWbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cosSWbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cosSWbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not cotGAbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            cotGAbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            cotGAbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not fliFEbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fliFEbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            fliFEbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not fmiBCbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            fmiBCbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            fmiBCbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not frCFCuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frCFCuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            frCFCuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not frDCRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frDCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            frDCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not frSCPuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frSCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            frSCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not frSFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frSFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            frSFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not frSIFuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frSIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            frSIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not frSLMuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frSLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            frSLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not frSPDuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frSPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            frSPDuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not frSSOuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            frSSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            frSSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not icfFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            icfFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            icfFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not intBCbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            intBCbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')   
+            intBCbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')   
         if not linSBuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            linSBuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            linSBuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not macBBar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            macBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            macBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not malBBar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            malBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not malCPuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            malCPuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not malFCpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            malFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not malGRpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malGRpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            malGRpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not malIFuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            malIFuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not malPIar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            malPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not malSOuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            malSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            malSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not mamBSbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            mamBSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            mamBSbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not mamFCpy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            mamFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            mamFCpy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not mamLMuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            mamLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            mamLMuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not mamPIar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            mamPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            mamPIar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not mamSOuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            mamSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            mamSOuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not pltDCuy.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            pltDCuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            pltDCuy.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not raqBBar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            raqBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            raqBBar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
         if not tbExc.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            tbExc.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            tbExc.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not tboCRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            tboCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            tboCRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not tboFRbr.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            tboFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            tboFRbr.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
         if not tboOPar.empty:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a') as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a') as f:
                 f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            tboOPar.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
+            tboOPar.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')    
 
 
 
-        #df.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+        #df.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
 
-        with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a', encoding="utf=8") as f:
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a', encoding="utf=8") as f:
             f.write("======================================================================================================================================================================================\n")
             f.write("                                                                                      OUTROS                                                                                          \n")
             f.write("======================================================================================================================================================================================\n")
         if not caixa.empty:
-            caixa.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+            caixa.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
         else:
-            with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a', encoding="utf=8") as f:
+            with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a', encoding="utf=8") as f:
                 f.write("                                                                         Nenhum produto foi encontrado                                                                              \n")
-        with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a', encoding="utf=8") as f:
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a', encoding="utf=8") as f:
             f.write("======================================================================================================================================================================================\n")
-        with open('C:/Users/Karol/Desktop/excel-python/note/PJ.txt', 'a', encoding="utf=8") as f:
+        with open('C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', 'a', encoding="utf=8") as f:
             f.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
             f.write("                                                   Obs.: (*) - sem NF de Armazenagem         (B) - Bloqueado         (v) - Peso Variavel                                              \n")
 
-        #dadosGeral.to_csv(r'C:/Users/Karol/Desktop/excel-python/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
+        #dadosGeral.to_csv(r'C:/Users/Karol/Desktop/excel-python/test/note/PJ.txt', header=None, index=None, sep='\t', mode='a')
 
         """ with open('C:/Users/Karol/Desktop/excel=python/PJ.txt', 'w') as f:
             for line in dTotal:

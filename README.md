@@ -45,10 +45,13 @@ This project was developed with the following technologies:
 Project with the pandas library, allowing more knowledge about this tool
 
 START - PIP
+- create folder: note
 - pip install pandas tkinter os PyInstaller
 - pyinstaller index.py
   * Folders: build, dist
   * File: index.spec
+- Init App: build/ dist/ note/ index.spec
+
 PYTHON
 - Extension to run in VSCode: Python and Pylance
 

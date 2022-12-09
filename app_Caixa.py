@@ -1,5 +1,5 @@
 #INSERIR ARQUIVO
-with open(r'C:\Users\Karol\Desktop\excel-python\exemplo\SAL1146.txt') as f:
+with open(r'C:\Users\Karol\Downloads\SAL1146.txt') as f:
     content = f.readlines()
 content = [x.strip('\n') for x in content]
     
@@ -1096,6 +1096,24 @@ if len(listcotGAbr):
 else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listcotGAbr]
+
+
+listcupFCpy= []
+for line in content:
+    cupFCpy= "CUPFC-PY"
+    if cupFCpy in line:
+        if line[9] != "B":
+            listcupFCpy.append(line)
+            with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(line + '\n')
+            #print(line)
+if len(listcupFCpy):
+    with open(pathNotas, 'a', encoding="utf=8") as f:
+            f.write(lines_cod + '\n')
+else:
+    None
+listaGeral = [ele for ele in listaGeral if ele not in listcupFCpy]
+
 
 listfliFEbr= []
 for line in content:

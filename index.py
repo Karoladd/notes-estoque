@@ -1422,6 +1422,22 @@ class Application:
             None
         listaGeral = [ele for ele in listaGeral if ele not in listcotGAbr]
 
+        listcupFCpy= []
+        for line in content:
+            cupFCpy= "CUPFC-PY"
+            if cupFCpy in line:
+                if line[9] != "B":
+                    listcupFCpy.append(line)
+                    with open(pathNotas, 'a', encoding="utf=8") as f:
+                        f.write(line + '\n')
+                    #print(line)
+        if len(listcupFCpy):
+            with open(pathNotas, 'a', encoding="utf=8") as f:
+                    f.write(lines_cod + '\n')
+        else:
+            None
+        listaGeral = [ele for ele in listaGeral if ele not in listcupFCpy]
+
         listfliFEbr= []
         for line in content:
             fliFEbr= "FLIFE-BR"
@@ -3070,6 +3086,22 @@ class Application:
         else:
             None
         listaGeral = [ele for ele in listaGeral if ele not in listcotGAbr]
+
+        listcupFCpy= []
+        for line in content:
+            cupFCpy= "CUPFC-PY"
+            if cupFCpy in line:
+                if line[9] != "B":
+                    listcupFCpy.append(line)
+                    with open(pathNotas, 'a', encoding="utf=8") as f:
+                        f.write(line + '\n')
+                    #print(line)
+        if len(listcupFCpy):
+            with open(pathNotas, 'a', encoding="utf=8") as f:
+                    f.write(lines_cod + '\n')
+        else:
+            None
+        listaGeral = [ele for ele in listaGeral if ele not in listcupFCpy]
 
         listfliFEbr= []
         for line in content:
