@@ -28,8 +28,8 @@
 ## Tkinter
 
 <p align="center">
-    <img alt="objective" src=".github/tkmenu.jpg" width="25%">
-    <img alt="objective" src=".github/tksucess.jpg" width="25%">
+    <img alt="objective" src=".github/tkmenu.jpg" width="35%">
+    <img alt="objective" src=".github/tksucess.jpg" width="35%">
 </p>
 
 ## 🚀 Technologies
@@ -96,13 +96,13 @@ https://www.youtube.com/watch?v=-22JkOmJeSI
 Select Rows & Columns by Name or Index in Pandas DataFrame using [ ], loc & iloc:
 https://www.geeksforgeeks.org/select-rows-columns-by-name-or-index-in-pandas-dataframe-using-loc-iloc/
 
-Delete all files directory python
+Delete all files directory python:
 https://www.techiedelight.com/pt/delete-all-files-directory-python/
 
-Remove list elements that contain given String in Python
+Remove list elements that contain given String in Python:
 https://bobbyhadz.com/blog/python-remove-elements-from-list-that-contain-string
 
-Adding a license to a repository
+Adding a license to a repository:
 https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository
 
 ## :memo: Licence
