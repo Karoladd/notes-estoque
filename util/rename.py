@@ -1,4 +1,3 @@
-
 def nameNotePF(nome):
     from datetime import  date
     data = date.today()
@@ -16,7 +15,7 @@ def nameNotePF(nome):
 
     # Absolute path of a file
     old_name = "C:/Users/Karol/Desktop/excel-python/note/PF.txt"
-    new_name = "C:/Users/Karol/Desktop/excel-python/note/" + text
+    new_name = 'C:/Users/Karol/Desktop/excel-python/note/' + text
 
     # Renaming the file
     dayname = os.rename(old_name, new_name)
@@ -40,7 +39,7 @@ def nameNotePJ(nome):
 
     # Absolute path of a file
     old_name = "C:/Users/Karol/Desktop/excel-python/note/PJ.txt"
-    new_name = "C:/Users/Karol/Desktop/excel-python/note/" + text
+    new_name = 'C:/Users/Karol/Desktop/excel-python/note/' + text
 
     # Renaming the file
     dayname = os.rename(old_name, new_name)

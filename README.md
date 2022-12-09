@@ -47,6 +47,7 @@ Project with the pandas library, allowing more knowledge about this tool
 START - PIP
 - create folder: note
 - pip install pandas tk PyInstaller
+- change path variables 
 - pyinstaller index.py
   * build/ dist/ index.spec
 - App: build/ dist/ note/ index.spec

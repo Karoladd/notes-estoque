@@ -2,8 +2,7 @@ from tkinter import *
 from tkinter import filedialog
 from util.download import downloadN
 from util.rename import nameNotePF, nameNotePJ
-
-PATHNOTEDIR = r"C:\Users\Karol\Desktop\excel-python\note"
+from util.pathPC import PATHNOTEDIR, PATHNOTEDIRPF, PATHNOTEDIRPJ
 
 class Application:
 
@@ -329,11 +328,11 @@ class Application:
         content = [x.strip('\n') for x in content]
             
         import os
-        dir = r'C:\Users\Karol\Desktop\excel-python\note'
+        dir = PATHNOTEDIR
         for f in os.listdir(dir):
             os.remove(os.path.join(dir, f))
 
-        pathNotas = r'C:\Users\Karol\Desktop\excel-python\note\PF.txt'
+        pathNotas = PATHNOTEDIRPF
         lines_cod = "----------------------------------------------------------------------------------------------------------------------------------------------------------------"
 
         listaGeral = []
@@ -1994,11 +1993,11 @@ class Application:
         content = [x.strip('\n') for x in content]
             
         import os
-        dir = r'C:\Users\Karol\Desktop\excel-python\note'
+        dir = PATHNOTEDIR
         for f in os.listdir(dir):
             os.remove(os.path.join(dir, f))
 
-        pathNotas = r'C:\Users\Karol\Desktop\excel-python\note\PJ.txt'
+        pathNotas = PATHNOTEDIRPJ
         lines_cod = "----------------------------------------------------------------------------------------------------------------------------------------------------------------"
 
         listaGeral = []
