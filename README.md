@@ -50,7 +50,7 @@ START - PIP
 - pyinstaller index.py
   * Folders: build, dist
   * File: index.spec
-- Init App: build/ dist/ note/ index.spec
+- App: build/ dist/ note/ index.spec
 
 PYTHON
 - Extension to run in VSCode: Python and Pylance
@@ -61,19 +61,6 @@ FOLDERS:
 - note - python result in note
 - project - learning tests
 - dist - index/index.exe
-
-COLUNAS:
-1. Lote
-2. Código
-3. Produto
-4. Un.
-5. Qt. (Volume)
-6. Peso Lq.
-7. Peso Br.
-8. Validade (Motivo)
-9. Camara 
-10. NFE (Motivo)
-11. Entrada
 
 Links Usefull:
 <p align="left"> Python Download - https://www.python.org/downloads/</p>
