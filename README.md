@@ -2,7 +2,7 @@
 <h1 align="center"> Python - create Excel and Notes </h1>
 
 <p align="center">
-    Analyzing Excel, perform data filtering and creation of new Excel and Notes. 
+    Analyzing Excel or Notes, perform data filtering and creation new Note. 
     Interface to perform analyzes with Tkinter.
 </p>
 
@@ -46,25 +46,40 @@ Project with the pandas library, allowing more knowledge about this tool
 
 START - PIP
 - create folder: note
-- pip install pandas tkinter os PyInstaller
+- pip install pandas tk PyInstaller
 - pyinstaller index.py
-  * Folders: build, dist
-  * File: index.spec
+  * build/ dist/ index.spec
 - App: build/ dist/ note/ index.spec
+- dist - index/index.exe
 
 PYTHON
 - Extension to run in VSCode: Python and Pylance
 
 FOLDERS:
-- xls - analyze excel
-- excel - python result in excel
-- note - python result in note
-- project - learning tests
-- dist - index/index.exe
+- test/xls - analyze excel
+- test/excel - python result in excel
+- test/note - python result in note
+- test/project - learning tests
+
+LEARNED:
+- tkinter interface
+- import function and libraries 
+- add function in button
+- change background color to loading
+- get the list of directories
+- check if the list is empty
+- browse files with types
+- read and write each line with open() utf-8
+- delete files of directory
+- list: append and delete items
+- condiction to insert path or click in button
+- move file to other folder 
+- rename file with the data 
 
 Links Usefull:
 <p align="left"> Python Download - https://www.python.org/downloads/</p>
 <p align="left"> VSCode Download -  https://code.visualstudio.com/download</p>
+<p align="left"> Git Download -  https://git-scm.com/download/win</p>
 
 ## 🔖 References
 
@@ -85,6 +100,9 @@ https://www.techiedelight.com/pt/delete-all-files-directory-python/
 
 Remove list elements that contain given String in Python
 https://bobbyhadz.com/blog/python-remove-elements-from-list-that-contain-string
+
+Adding a license to a repository
+https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository
 
 ## :memo: Licence
 
