@@ -83,6 +83,14 @@ LEARNED:
 - move file to other folder 
 - rename file with the data 
 
+CONDITIONS:
+- note to be controlled needs to be closed, so there is no data conflict
+- automation needs to be performed only once, as the file is already created
+
+AUTOMATION:
+- change in the order of products
+- lines during product sections
+
 Links Usefull:
 <p align="left"> Python Download - https://www.python.org/downloads/</p>
 <p align="left"> VSCode Download -  https://code.visualstudio.com/download</p>
