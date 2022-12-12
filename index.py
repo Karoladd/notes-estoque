@@ -2,7 +2,10 @@ from tkinter import *
 from tkinter import filedialog
 from util.download import downloadN
 from util.rename import nameNotePF, nameNotePJ
-from util.pathPC import PATHNOTEDIR, PATHNOTEDIRPF, PATHNOTEDIRPJ
+
+PATHNOTEDIR = 'C:/Users/Karol/Desktop/excel-python/note/'
+PATHNOTEDIRPF = "C:/Users/Karol/Desktop/excel-python/note/PF.txt"
+PATHNOTEDIRPJ = "C:/Users/Karol/Desktop/excel-python/note/PJ.txt"
 
 class Application:
 

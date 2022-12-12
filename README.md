@@ -53,6 +53,12 @@ START - PIP
 - App: build/ dist/ note/ index.spec
 - dist - index/index.exe
 
+PATH VARIABLES
+- create folder in download
+- alter path util/download.py
+- alter path util/rename.py
+- alter index.py
+
 PYTHON
 - Extension to run in VSCode: Python and Pylance
 
