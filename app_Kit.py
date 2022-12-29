@@ -1,5 +1,5 @@
 #INSERIR ARQUIVO
-with open(r'C:\Users\Karol\Desktop\excel-python\exemplo\SAL1146.txt') as f:
+with open(r'C:\Users\Karol\Downloads\ex-Kit\SAL2223.TXT') as f:
     content = f.readlines()
 content = [x.strip('\n') for x in content]
     
@@ -12,6 +12,7 @@ pathNotas = r'C:\Users\Karol\Desktop\excel-python\note\PF.txt'
 lines_cod = "----------------------------------------------------------------------------------------------------------------------------------------------------------------"
 
 listaGeral = []
+vazioMarca = "                   "
 for line in content:
     listaGeral.append(line)
     listaGeral = filter(None, listaGeral)
@@ -29,12 +30,17 @@ for line in content:
     listaGeral = [item for item in listaGeral if sald_cod not in item]
 
 with open(pathNotas, 'w', encoding="utf=8") as f:
-    cabecalho = list(range(0, 6))
+    cabecalho = list(range(0, 3))
     for i in cabecalho:
         #print(content[i])
         with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(content[i] + '\n')      
-
+          f.write(content[i]+"\n")
+    
+with open(pathNotas, 'a', encoding="utf=8") as f:
+    f.write("----------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+    f.write("Marca              Lote       Codigo          *--------- P r o d u t o ----------*  Un     Qtd   Peso Liq.  Peso Buto  Fbi. Vlidde Cm     NFE       Entd  Plt. \n")
+    f.write("----------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+    
 with open(pathNotas, 'a', encoding="utf=8") as f:
     f.write("================================================================================================================================================================\n")
     f.write("                                                                            PEIXES                                                              \n")
@@ -46,8 +52,14 @@ for line in content:
     if bacalhau in line:
         if line[9] != "B":
             listbac.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listbac):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -56,71 +68,52 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listbac]
 
-listsemPele = []
+listcamarao = []
 for line in content:
-    camarao = "CAMMC-AR"
-    semPele = "CAMARÃO S/PELE"
-    if (camarao and semPele) in line:
+    camarao = "CAMAR"
+    if camarao in line:
         if line[9] != "B":
-            listsemPele.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            listcamarao.append(line)
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
-if len(listsemPele):
+if len(listcamarao):
     with open(pathNotas, 'a', encoding="utf=8") as f:
             f.write(lines_cod + '\n')
 else:
     None
-listaGeral = [ele for ele in listaGeral if ele not in listsemPele]
+listaGeral = [ele for ele in listaGeral if ele not in listcamarao]
 
-listcomRabo = []
-for line in content:
-    camarao = "CAMMC-AR"
-    comRabo = "CAMARÃO C/RABO"
-    if (camarao and comRabo) in line:
-        if line[9] != "B":
-            listcomRabo.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcomRabo):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcomRabo]
+#EXEMPLO DE DUAS CONDIÇÕES
 
-listcamMRbr = []
-for line in content:
-    camMRbr = "CAMMR-BR"
-    if camMRbr in line:
-        if line[9] != "B":
-            listcamMRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcamMRbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcamMRbr]
-
-listcamPNar = []
-for line in content:
-    camPNar = "CAMPN-AR"
-    if camPNar in line:
-        if line[9] != "B":
-            listcamPNar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcamPNar):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcamPNar]
+#listcomRabo = []
+#for line in content:
+#    camarao = "CAMMC-AR"
+#    comRabo = "CAMARÃO C/RABO"
+#    if (camarao and comRabo) in line:
+#        if line[9] != "B":
+#            listcomRabo.append(line)
+#            if "#" in line:
+#              marca = "#"+ (line.split("#",1)[1])
+#              top = line.replace(marca,"")
+#              with open(pathNotas, 'a', encoding="utf=8") as f:
+#                f.write(marca + "   " + top + '\n')
+#            else:
+#              with open(pathNotas, 'a', encoding="utf=8") as f:
+#                f.write(vazioMarca + line+ '\n')           
+#            #print(line)
+#if len(listcomRabo):
+#    with open(pathNotas, 'a', encoding="utf=8") as f:
+#            f.write(lines_cod + '\n')
+#else:
+#    None
+#listaGeral = [ele for ele in listaGeral if ele not in listcomRabo]
 
 listfilePanga = []
 for line in content:
@@ -128,8 +121,14 @@ for line in content:
     if filePanga in line:
         if line[9] != "B":
             listfilePanga.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listfilePanga):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -144,8 +143,14 @@ for line in content:
     if fileSalmao in line:
         if line[9] != "B":
             listfileSalmao.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listfileSalmao):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -155,14 +160,21 @@ else:
 listaGeral = [ele for ele in listaGeral if ele not in listfileSalmao]
 
 
+
 listfileLing = []
 for line in content:
     fileLing = "FLIFE-BR"
     if fileLing in line:
         if line[9] != "B":
             listfileLing.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listfileLing):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -171,14 +183,21 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listfileLing]
 
+
 listpolvo = []
 for line in content:
     polvo = "POLVO"
     if polvo in line:
         if line[9] != "B":
             listpolvo.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpolvo):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -193,8 +212,14 @@ for line in content:
     if vieira in line:
         if line[9] != "B":
             listvieira.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listvieira):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -217,8 +242,16 @@ for bproduct in listb:
     try:
         if bproduct[9] == "B":
             listbprod.append(bproduct)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(bproduct + '\n')
+            if "#" in bproduct:
+                marca = "#"+ (bproduct.split("#",1)[1])
+                top = bproduct.replace(marca,"")
+                with open(pathNotas, 'a', encoding="utf=8") as f:
+                    f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + bproduct+ '\n')           
+            #print(line)
+
     except:
         None
     pass
@@ -235,8 +268,14 @@ for line in content:
     if picBBar in line:
         if line[9] != "B":
             listpicBBar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicBBar):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -251,8 +290,14 @@ for line in content:
     if picCJar in line:
         if line[9] != "B":
             listpicCJar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicCJar):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -267,8 +312,14 @@ for line in content:
     if picCPuy in line:
         if line[9] != "B":
             listpicCPuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicCPuy):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -283,8 +334,14 @@ for line in content:
     if picFBar in line:
         if line[9] != "B":
             listpicFBar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicFBar):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -299,8 +356,14 @@ for line in content:
     if picFCpy in line:
         if line[9] != "B":
             listpicFCpy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicFCpy):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -315,8 +378,14 @@ for line in content:
     if picFGar in line:
         if line[9] != "B":
             listpicFGar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicFGar):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -331,8 +400,14 @@ for line in content:
     if picGRpy in line:
         if line[9] != "B":
             listpicGRpy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicGRpy):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -347,8 +422,14 @@ for line in content:
     if picLMuy in line:
         if line[9] != "B":
             listpicLMuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicLMuy):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -363,8 +444,14 @@ for line in content:
     if picNGbr in line:
         if line[9] != "B":
             listpicNGbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicNGbr):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -379,8 +466,14 @@ for line in content:
     if picPDuy in line:
         if line[9] != "B":
             listpicPDuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicPDuy):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -395,8 +488,14 @@ for line in content:
     if picPIarC in line:
         if line[9] != "B":
             listpicPIarC.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicPIarC):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -411,8 +510,14 @@ for line in content:
     if picPIarR in line:
         if line[9] != "B":
             listpicPIarR.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicPIarR):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -427,8 +532,14 @@ for line in content:
     if picSOuy in line:
         if line[9] != "B":
             listpicSOuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicSOuy):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -443,8 +554,14 @@ for line in content:
     if picZMbr in line:
         if line[9] != "B":
             listpicZMbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpicZMbr):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -457,13 +574,31 @@ listaGeral = [ele for ele in listaGeral if ele not in listpicZMbr]
 
 listfcCCRbr = []
 for line in content:
-    fcCCRbr = "FCCCR-BR"
-    if fcCCRbr in line:
+    fcCCRbr = "FILE COSTELA"
+    fcdfc = "FILE DE COSTELA"
+    if (fcCCRbr) in line:
         if line[9] != "B":
             listfcCCRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')    
+    if (fcdfc) in line:
+        if line[9] != "B":
+            listfcCCRbr.append(line)
+            if "#" in line:
+                marca = "#"+ (line.split("#",1)[1])
+                top = line.replace(marca,"")
+                with open(pathNotas, 'a', encoding="utf=8") as f:
+                    f.write(marca + "   " + top + '\n')
+            else:
+                with open(pathNotas, 'a', encoding="utf=8") as f:
+                    f.write(vazioMarca + line+ '\n') 
+                #print(line)
 if len(listfcCCRbr):
     with open(pathNotas, 'a', encoding="utf=8") as f:
             f.write(lines_cod + '\n')
@@ -471,174 +606,21 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listfcCCRbr]
 
-listfcCFRbr = []
-for line in content:
-    fcCFRbr = "FCCFR-BR"
-    if fcCFRbr in line:
-        if line[9] != "B":
-            listfcCFRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfcCFRbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfcCFRbr]
-
-listfcCBSbr = []
-for line in content:
-    fcCBSbr = "FCCBS-BR"
-    if fcCBSbr in line:
-        if line[9] != "B":
-            listfcCBSbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfcCBSbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfcCBSbr]
-
-listfcOBBar = []
-for line in content:
-    fcOBBar = "FCOBB-AR"
-    if fcOBBar in line:
-        if line[9] != "B":
-            listfcOBBar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfcOBBar):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfcOBBar]
-
-listfcOCPuy = []
-for line in content:
-    fcOCPuy = "FCOCP-UY"
-    if fcOCPuy in line:
-        if line[9] != "B":
-            listfcOCPuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfcOCPuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfcOCPuy]
-
-listfcOIFuy = []
-for line in content:
-    fcOIFuy = "FCOIF-UY"
-    if fcOIFuy in line:
-        if line[9] != "B":
-            listfcOIFuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfcOIFuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfcOIFuy]
-
-listfcOLMuy = []
-for line in content:
-    fcOLMuy = "FCOLM-UY"
-    if fcOLMuy in line:
-        if line[9] != "B":
-            listfcOLMuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfcOLMuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfcOLMuy]
-
-listfcOOPar = []
-for line in content:
-    fcOOPar = "FCOOP-AR"
-    if fcOOPar in line:
-        if line[9] != "B":
-            listfcOOPar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfcOOPar):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfcOOPar]
-
-listfcOPDuy = []
-for line in content:
-    fcOPDuy = "FCOPD-UY"
-    if fcOPDuy in line:
-        if line[9] != "B":
-            listfcOPDuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfcOPDuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfcOPDuy]
-
-listfcOPIar = []
-for line in content:
-    fcOPIar = "FCOPI-AR"
-    if fcOPIar in line:
-        if line[9] != "B":
-            listfcOPIar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfcOPIar):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfcOPIar]
-
-listfcOSOuy = []
-for line in content:
-    fcOSOuy = "FCOSO-UY"
-    if fcOSOuy in line:
-        if line[9] != "B":
-            listfcOSOuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfcOSOuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfcOSOuy]
-
 listcfIBBar = []
 for line in content:
-    cfIBBar = "CFIBB-AR"
-    if cfIBBar in line:
+    cfIBBar = "CONTRA FILE"
+    cf = "CFI"
+    if (cfIBBar and cf) in line:
         if line[9] != "B":
             listcfIBBar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listcfIBBar):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -647,224 +629,57 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listcfIBBar]
 
-listcfiBSbr = []
-for line in content:
-    cfiBSbr = "CFIBS-BR"
-    if cfiBSbr in line:
-        if line[9] != "B":
-            listcfiBSbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcfiBSbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcfiBSbr]
-
-listcfiCPuy = []
-for line in content:
-    cfiCPuy = "CFICP-UY"
-    if cfiCPuy in line:
-        if line[9] != "B":
-            listcfiCPuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcfiCPuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcfiCPuy]
-
-listcfiFRbr = []
-for line in content:
-    cfiFRbr = "CFIFR-BR"
-    if cfiFRbr in line:
-        if line[9] != "B":
-            listcfiFRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcfiFRbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcfiFRbr]
-
-listcfiGRpy = []
-for line in content:
-    cfiGRpy = "CFIGR-PY"
-    if cfiGRpy in line:
-        if line[9] != "B":
-            listcfiGRpy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcfiGRpy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcfiGRpy]
-
-listcfiIFuy = []
-for line in content:
-    cfiIFuy = "CFIIF-UY"
-    if cfiIFuy in line:
-        if line[9] != "B":
-            listcfiIFuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcfiIFuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcfiIFuy]
-
-listcfiLMuy = []
-for line in content:
-    cfiLMuy = "CFILM-UY"
-    if cfiLMuy in line:
-        if line[9] != "B":
-            listcfiLMuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcfiLMuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcfiLMuy]
-
-listcfiOPar = []
-for line in content:
-    cfiOPar = "CFIOP-AR"
-    if cfiOPar in line:
-        if line[9] != "B":
-            listcfiOPar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcfiOPar):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcfiOPar]
-
-listcfiPDuy = []
-for line in content:
-    cfiPDuy = "CFIPD-UY"
-    if cfiPDuy in line:
-        if line[9] != "B":
-            listcfiPDuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcfiPDuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcfiPDuy]
-
-listcfiPIar = []
-for line in content:
-    cfiPIar = "CFIPI-AR"
-    if cfiPIar in line:
-        if line[9] != "B":
-            listcfiPIar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcfiPIar):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcfiPIar]
-
-listcfiSOuy = []
-for line in content:
-    cfiSOuy = "CFISO-UY"
-    if cfiSOuy in line:
-        if line[9] != "B":
-            listcfiSOuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcfiSOuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcfiSOuy]
-
-
-
 listaccCRbr = []
+listacbovosso = []
 for line in content:
-    accCRbr = "ACCCR-BR"
+    accCRbr = "ACEM C/OSSO"
+    acbovosso = "ACEM BOV. C/ OSSO"
     if accCRbr in line:
         if line[9] != "B":
             listaccCRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
+    if acbovosso in line:
+        if line[9] != "B":
+            listacbovosso.append(line)
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n') 
 if len(listaccCRbr):
     with open(pathNotas, 'a', encoding="utf=8") as f:
             f.write(lines_cod + '\n')
 else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listaccCRbr]
+listaGeral = [ele for ele in listaGeral if ele not in listacbovosso]
 
-listaccFRbr = []
+listalcFCpy = []
 for line in content:
-    accFRbr = "ACCFR-BR"
-    if accFRbr in line:
-        if line[9] != "B":
-            listaccFRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listaccFRbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listaccFRbr]
-
-listaccFUbr= []
-for line in content:
-    accFUbr= "ACCFU-BR"
-    if accFUbr in line:
-        if line[9] != "B":
-            listaccFUbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listaccFUbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listaccFUbr]
-
-listalcFCpy= []
-for line in content:
-    alcFCpy= "ALCFC-PY"
-    if alcFCpy in line:
+    alcFCpy = "ALCATRA"
+    alc = "ALCFC"
+    if (alcFCpy and alc) in line:
         if line[9] != "B":
             listalcFCpy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listalcFCpy):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -873,14 +688,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listalcFCpy]
 
-listatiBSbr= []
+listatiBSbr = []
 for line in content:
-    atiBSbr= "ATIBS-BR"
+    atiBSbr = "ASSADO DE TIRA"
     if atiBSbr in line:
         if line[9] != "B":
             listatiBSbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listatiBSbr):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -889,62 +710,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listatiBSbr]
 
-listatiCRbr= []
+listbar19br = []
 for line in content:
-    atiCRbr= "ATICR-BR"
-    if atiCRbr in line:
-        if line[9] != "B":
-            listatiCRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listatiCRbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listatiCRbr]
-
-listatiFRbr= []
-for line in content:
-    atiFRbr= "ATIFR-BR"
-    if atiFRbr in line:
-        if line[9] != "B":
-            listatiFRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listatiFRbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listatiFRbr]
-
-listatiPDuy= []
-for line in content:
-    atiPDuy= "ATIPD-UY"
-    if atiPDuy in line:
-        if line[9] != "B":
-            listatiPDuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listatiPDuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listatiPDuy]
-
-listbar19br= []
-for line in content:
-    bar19br= "BAR19-BR"
+    bar19br = "BARRIGA"
     if bar19br in line:
         if line[9] != "B":
             listbar19br.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listbar19br):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -953,14 +732,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listbar19br]
 
-listbbmFRbr= []
+listbbmFRbr = []
 for line in content:
-    bbmFRbr= "BBMFR-BR"
+    bbmFRbr = "BOMBOM DA ALCATRA"
     if bbmFRbr in line:
         if line[9] != "B":
             listbbmFRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listbbmFRbr):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -969,14 +754,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listbbmFRbr]
 
-listcarDCuy= []
+listcarDCuy = []
 for line in content:
-    carDCuy= "CARDC-UY"
+    carDCuy = "CARRE FRANCES"
     if carDCuy in line:
         if line[9] != "B":
             listcarDCuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listcarDCuy):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -985,15 +776,34 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listcarDCuy]
 
-listcfrGTar= []
+listcfrGTar = []
+listcorac = []
 for line in content:
-    cfrGTar= "CFRGT-AR"
+    cfrGTar = "CORAÇAO DE FRANGO"
+    corac = "CORACAO DE FRANGO"
     if cfrGTar in line:
         if line[9] != "B":
             listcfrGTar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
+    if corac in line:
+        if line[9] != "B":
+            listcfrGTar.append(line)
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')
 if len(listcfrGTar):
     with open(pathNotas, 'a', encoding="utf=8") as f:
             f.write(lines_cod + '\n')
@@ -1001,30 +811,48 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listcfrGTar]
 
-listcfrPOar= []
+listcosFRbr = []
+listcosDiant = []
+listcosTras = []
 for line in content:
-    cfrPOar= "CFRPO-AR"
-    if cfrPOar in line:
-        if line[9] != "B":
-            listcfrPOar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcfrPOar):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcfrPOar]
-
-listcosFRbr= []
-for line in content:
-    cosFRbr= "COSFR-BR"
+    cosFRbr = "COSTELA BOV JANELA"
+    cosDiant = "COSTELA BOV DIANTEIRO"
+    cosTras = "COSTELA BOV. TRASEIRO"
     if cosFRbr in line:
         if line[9] != "B":
             listcosFRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
+            #print(line)
+    if cosDiant in line:
+        if line[9] != "B":
+            listcosFRbr.append(line)
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
+            #print(line)
+    if cosTras in line:
+        if line[9] != "B":
+            listcosFRbr.append(line)
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listcosFRbr):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1033,78 +861,22 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listcosFRbr]
 
-listcosGAbr= []
-for line in content:
-    cosGAbr= "COSGA-BR"
-    if cosGAbr in line:
-        if line[9] != "B":
-            listcosGAbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcosGAbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcosGAbr]
 
-listcosPDuy= []
-for line in content:
-    cosPDuy= "COSPD-UY"
-    if cosPDuy in line:
-        if line[9] != "B":
-            listcosPDuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcosPDuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcosPDuy]
 
-listcosSWbr= []
+listcupFCpy = []
 for line in content:
-    cosSWbr= "COSSW-BR"
-    if cosSWbr in line:
-        if line[9] != "B":
-            listcosSWbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcosSWbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcosSWbr]
-
-listcotGAbr= []
-for line in content:
-    cotGAbr= "COTGA-BR"
-    if cotGAbr in line:
-        if line[9] != "B":
-            listcotGAbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listcotGAbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listcotGAbr]
-
-listcupFCpy= []
-for line in content:
-    cupFCpy= "CUPFC-PY"
+    cupFCpy = "CUPFC-PY"
     if cupFCpy in line:
         if line[9] != "B":
             listcupFCpy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listcupFCpy):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1114,14 +886,20 @@ else:
 listaGeral = [ele for ele in listaGeral if ele not in listcupFCpy]
 
 
-listfliFEbr= []
+listfliFEbr = []
 for line in content:
-    fliFEbr= "FLIFE-BR"
+    fliFEbr = "FILE DE LINGUADO"
     if fliFEbr in line:
         if line[9] != "B":
             listfliFEbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listfliFEbr):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1130,14 +908,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listfliFEbr]
 
-listfmiBCbr= []
+listfmiBCbr = []
 for line in content:
-    fmiBCbr= "FMIBC-BR"
+    fmiBCbr = "FILE MIGNON BOV"
     if fmiBCbr in line:
         if line[9] != "B":
             listfmiBCbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listfmiBCbr):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1146,14 +930,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listfmiBCbr]
 
-listfrCFCuy= []
+listfrCFCuy = []
 for line in content:
-    frCFCuy= "FRCFC-UY"
+    frCFCuy = "FRALDA"
     if frCFCuy in line:
         if line[9] != "B":
             listfrCFCuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listfrCFCuy):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1162,126 +952,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listfrCFCuy]
 
-listfrDCRbr= []
+listicfFRbr = []
 for line in content:
-    frDCRbr= "FRDCR-BR"
-    if frDCRbr in line:
-        if line[9] != "B":
-            listfrDCRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfrDCRbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfrDCRbr]
-
-listfrSCPuy= []
-for line in content:
-    frSCPuy= "FRSCP-UY"
-    if frSCPuy in line:
-        if line[9] != "B":
-            listfrSCPuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfrSCPuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfrSCPuy]
-
-listfrSFRbr= []
-for line in content:
-    frSFRbr= "FRSFR-BR"
-    if frSFRbr in line:
-        if line[9] != "B":
-            listfrSFRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfrSFRbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfrSFRbr]
-
-listfrSIFuy= []
-for line in content:
-    frSIFuy= "FRSIF-UY"
-    if frSIFuy in line:
-        if line[9] != "B":
-            listfrSIFuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfrSIFuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfrSIFuy]
-
-listfrSLMuy= []
-for line in content:
-    frSLMuy= "FRSLM-UY"
-    if frSLMuy in line:
-        if line[9] != "B":
-            listfrSLMuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfrSLMuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfrSLMuy]
-
-listfrSPDuy= []
-for line in content:
-    frSPDuy= "FRSPD-UY"
-    if frSPDuy in line:
-        if line[9] != "B":
-            listfrSPDuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfrSPDuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfrSPDuy]
-
-listfrSSOuy= []
-for line in content:
-    frSSOuy= "FRSSO-UY"
-    if frSSOuy in line:
-        if line[9] != "B":
-            listfrSSOuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listfrSSOuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listfrSSOuy]
-
-listicfFRbr= []
-for line in content:
-    icfFRbr= "ICFFR-BR"
+    icfFRbr = "ISCA DE CONTRA FILE"
     if icfFRbr in line:
         if line[9] != "B":
             listicfFRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listicfFRbr):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1290,14 +974,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listicfFRbr]
 
-listintBCbr= []
+listintBCbr = []
 for line in content:
-    intBCbr= "INTBC-BR"
+    intBCbr = "INTBC-BR"
     if intBCbr in line:
         if line[9] != "B":
             listintBCbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listintBCbr):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1306,14 +996,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listintBCbr]
 
-listlinSBuy= []
+listlinSBuy = []
 for line in content:
-    linSBuy= "LINSB-UY"
+    linSBuy = "LINGUICA"
     if linSBuy in line:
         if line[9] != "B":
             listlinSBuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listlinSBuy):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1322,14 +1018,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listlinSBuy]
 
-listmacBBar= []
+listmacBBar = []
 for line in content:
-    macBBar= "MACBB-AR"
+    macBBar = "MIOLO DE ACEM"
     if macBBar in line:
         if line[9] != "B":
             listmacBBar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listmacBBar):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1338,15 +1040,32 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listmacBBar]
 
-listmalBBar= []
+listmalBBar = []
 for line in content:
-    malBBar= "MALBB-AR"
+    malBBar = "MIOLO DE ALCATRA"
+    mioloAlcatra = "MIOLO ALCATRA"
     if malBBar in line:
         if line[9] != "B":
             listmalBBar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
+    if mioloAlcatra in line:
+        if line[9] != "B":
+            listmalBBar.append(line)
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')     
 if len(listmalBBar):
     with open(pathNotas, 'a', encoding="utf=8") as f:
             f.write(lines_cod + '\n')
@@ -1354,110 +1073,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listmalBBar]
 
-listmalCPuy= []
+listmamBSbr = []
 for line in content:
-    malCPuy= "MALCP-UY"
-    if malCPuy in line:
-        if line[9] != "B":
-            listmalCPuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listmalCPuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listmalCPuy]
-
-listmalFCpy= []
-for line in content:
-    malFCpy= "MALFC-PY"
-    if malFCpy in line:
-        if line[9] != "B":
-            listmalFCpy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listmalFCpy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listmalFCpy]
-
-listmalGRpy= []
-for line in content:
-    malGRpy= "MALGR-PY"
-    if malGRpy in line:
-        if line[9] != "B":
-            listmalGRpy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listmalGRpy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listmalGRpy]
-
-listmalIFuy= []
-for line in content:
-    malIFuy= "MALIF-UY"
-    if malIFuy in line:
-        if line[9] != "B":
-            listmalIFuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listmalIFuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listmalIFuy]
-
-listmalPIar= []
-for line in content:
-    malPIar= "MALPI-AR"
-    if malPIar in line:
-        if line[9] != "B":
-            listmalPIar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listmalPIar):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listmalPIar]
-
-listmalSOuy= []
-for line in content:
-    malSOuy= "MALSO-UY"
-    if malSOuy in line:
-        if line[9] != "B":
-            listmalSOuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listmalSOuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listmalSOuy]
-
-listmamBSbr= []
-for line in content:
-    mamBSbr= "MAMBS-BR"
+    mamBSbr = "MAMINHA BOV"
     if mamBSbr in line:
         if line[9] != "B":
             listmamBSbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listmamBSbr):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1466,78 +1095,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listmamBSbr]
 
-listmamFCpy= []
+listpltDCuy = []
 for line in content:
-    mamFCpy= "MAMFC-PY"
-    if mamFCpy in line:
-        if line[9] != "B":
-            listmamFCpy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listmamFCpy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listmamFCpy]
-
-listmamLMuy= []
-for line in content:
-    mamLMuy= "MAMLM-UY"
-    if mamLMuy in line:
-        if line[9] != "B":
-            listmamLMuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listmamLMuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listmamLMuy]
-
-listmamPIar= []
-for line in content:
-    mamPIar= "MAMPI-AR"
-    if mamPIar in line:
-        if line[9] != "B":
-            listmamPIar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listmamPIar):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listmamPIar]
-
-listmamSOuy= []
-for line in content:
-    mamSOuy= "MAMSO-UY"
-    if mamSOuy in line:
-        if line[9] != "B":
-            listmamSOuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listmamSOuy):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listmamSOuy]
-
-listpltDCuy= []
-for line in content:
-    pltDCuy= "PLTDC-UY"
+    pltDCuy = "PALETA"
     if pltDCuy in line:
         if line[9] != "B":
             listpltDCuy.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listpltDCuy):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1546,14 +1117,20 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listpltDCuy]
 
-listraqBBar= []
+listraqBBar = []
 for line in content:
-    raqBBar= "RAQBB-AR"
+    raqBBar = "RAQUETE BOVINO"
     if raqBBar in line:
         if line[9] != "B":
             listraqBBar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listraqBBar):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1562,14 +1139,33 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listraqBBar]
 
-listtbExc= []
+listtbExc = []
 for line in content:
-    tbExc= "T BONE"
+    tbExc = "T BONE"
+    tibone = "TIBONE"
     if tbExc in line:
         if line[9] != "B":
             listtbExc.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
+            #print(line)
+    if tibone in line:
+        if line[9] != "B":
+            listtbExc.append(line)
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listtbExc):
     with open(pathNotas, 'a', encoding="utf=8") as f:
@@ -1578,67 +1174,26 @@ else:
     None
 listaGeral = [ele for ele in listaGeral if ele not in listtbExc]
 
-listtboCRbr= []
-for line in content:
-    tboCRbr= "TBOCR-BR"
-    if tboCRbr in line:
-        if line[9] != "B":
-            listtboCRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listtboCRbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listtboCRbr]
-
-listtboFRbr= []
-for line in content:
-    tboFRbr= "TBOFR-BR"
-    if tboFRbr in line:
-        if line[9] != "B":
-            listtboFRbr.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listtboFRbr):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listtboFRbr]
-
-listtboOPar= []
-for line in content:
-    tboOPar= "TBOOP-AR"
-    if tboOPar in line:
-        if line[9] != "B":
-            listtboOPar.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
-            #print(line)
-if len(listtboOPar):
-    with open(pathNotas, 'a', encoding="utf=8") as f:
-            f.write(lines_cod + '\n')
-else:
-    None
-listaGeral = [ele for ele in listaGeral if ele not in listtboOPar]
 
 with open(pathNotas, 'a', encoding="utf=8") as f:
     f.write("================================================================================================================================================================\n")
     f.write("                                                                            OUTROS                                                          \n")
     f.write("================================================================================================================================================================\n")
 
-listcaixa= []
+listcaixa = []
 for line in content:
-    caixa= "SUD-800"
+    caixa = "SUD-800"
     if caixa in line:
         if line[9] != "B":
             listcaixa.append(line)
-            with open(pathNotas, 'a', encoding="utf=8") as f:
-                f.write(line + '\n')
+            if "#" in line:
+              marca = "#"+ (line.split("#",1)[1])
+              top = line.replace(marca,"")
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(marca + "   " + top + '\n')
+            else:
+              with open(pathNotas, 'a', encoding="utf=8") as f:
+                f.write(vazioMarca + line+ '\n')           
             #print(line)
 if len(listcaixa):
     with open(pathNotas, 'a', encoding="utf=8") as f:

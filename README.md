@@ -119,6 +119,8 @@ https://bobbyhadz.com/blog/python-remove-elements-from-list-that-contain-string
 Adding a license to a repository:
 https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository
 
+https://www.techiedelight.com/pt/remove-specific-characters-string-python/
+
 ## :memo: Licence
 
 This project is under the MIT license.
